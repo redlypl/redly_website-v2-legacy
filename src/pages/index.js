@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <Layout>
       <IndexWrapper>
-      sdsd
+        index page
       </IndexWrapper>
     </Layout>
   )

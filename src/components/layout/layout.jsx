@@ -9,7 +9,7 @@ import {
 import Header from "../header/header"
 import Footer from "../footer/footer"
 
-const Layout = (props) => {
+const Layout = (props, { isVisible }) => {
     return (
         <LayoutWrapper>
             <Helmet>
