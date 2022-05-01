@@ -1,13 +1,18 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import {
+    GlobalHeaderStyle,
     HeaderWrapper,
     Logo,
     Navbar,
     Item,
     MobileBtn,
     MobileBtnAlign,
-    Sl,
-
+    Sla,
+    Slb,
+    Slc,    
+    MobileMenu,
+    MobileMenuInnerWrap,
+    
 
 } from "./header.style"
 import { motion } from "framer-motion";
@@ -61,11 +66,27 @@ const MenuBtnVariant = {
         },
     },
 };
+const MobileMenuVariant = {
+    initial: {
+        y: 80,
+    },
+    animate: {
+        y: 0,
+        transition: {
+            duration: 0.9,
+            type: "tween",
+            ease: "easeInOut",
+        },
+    },
+};
 
 const Header = () => {
+    const [showMenu, setShowMenu] = useState(false)
+
     return (
-        <HeaderWrapper>
-            <Logo to="/" />
+        <HeaderWrapper id="classname1">
+            <GlobalHeaderStyle setShowMenu={showMenu} />
+            <Logo to="/" setShowMenu={showMenu} />
             <Navbar>
                 {navbarData.map((navbar) => {
                     return (
@@ -79,17 +100,35 @@ const Header = () => {
                     )
                 })}
             </Navbar>
-            <MobileBtn>
+            <MobileBtn setShowMenu={showMenu} onClick={() => setShowMenu(!showMenu)} href="#classname1">
                 <motion.div
                     variants={MenuBtnVariant}
                     initial="initial"
                     animate="animate"
+                    key={showMenu}
                 >
                     <MobileBtnAlign>
-                        <Sl /><Sl /><Sl />
+                        <Sla setShowMenu={showMenu} />
+                        <Slb setShowMenu={showMenu} />
+                        <Slc setShowMenu={showMenu} />
                     </MobileBtnAlign>
                 </motion.div>
             </MobileBtn>
+            <MobileMenu setShowMenu={showMenu}>
+                <MobileMenuInnerWrap>
+                    {navbarData.map((navbar) => {
+                        return (
+                            <motion.div
+                                variants={MobileMenuVariant}
+                                initial="initial"
+                                animate="animate"
+                            >
+                                <Item isMobile to={navbar.link} key={navbar.title}>{navbar.title}</Item>
+                            </motion.div>
+                        )
+                    })}
+                </MobileMenuInnerWrap>
+            </MobileMenu>
         </HeaderWrapper>
     )
 }
