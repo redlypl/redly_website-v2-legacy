@@ -1,10 +1,8 @@
 import React from "react"
-import styled from "styled-components"
 import Layout from "../components/layout/layout"
-
-const IndexWrapper = styled.div`
-
-`
+import {
+  IndexWrapper
+} from "../styles/index.style"
 
 const Index = () => {
   return (

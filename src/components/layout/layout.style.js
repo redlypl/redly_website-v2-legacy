@@ -38,3 +38,11 @@ export const GlobalStyle = createGlobalStyle`
 export const LayoutWrapper = styled.div`
 
 `
+export const Preloader = styled.div`
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    top: 0;
+`

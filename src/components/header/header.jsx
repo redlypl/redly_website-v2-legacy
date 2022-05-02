@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import {
     GlobalHeaderStyle,
     HeaderWrapper,
@@ -84,7 +84,7 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false)
 
     return (
-        <HeaderWrapper id="classname1">
+        <HeaderWrapper id="c">
             <GlobalHeaderStyle setShowMenu={showMenu} />
             <Logo to="/" setShowMenu={showMenu} />
             <Navbar>
@@ -100,7 +100,7 @@ const Header = () => {
                     )
                 })}
             </Navbar>
-            <MobileBtn setShowMenu={showMenu} onClick={() => setShowMenu(!showMenu)} href="#classname1">
+            <MobileBtn setShowMenu={showMenu} onClick={() => setShowMenu(!showMenu)} href="#c">
                 <motion.div
                     variants={MenuBtnVariant}
                     initial="initial"
